@@ -11,9 +11,9 @@ você poderá me comprar uma cerveja em retribuição, Arthur Cordeiro Andrade.-
 - Crie uma pasta com o nome desejado
 - Coloque os arquivos csv com nomes na primeira coluna e email na segunda nomeados como Dia1 até o DiaN
 - No arquivo "Presenciador.py" configure as variáveis
-	- nome_pasta	- nome da pasta criada com os arquivos csv
-	- n_arqs		- número de dias/arquivos
-	- n_aprovação	- número de presenças mínima nos dias para aprovação
+	- nome_pasta --- nome da pasta criada com os arquivos csv
+	- n_arqs ------- número de dias/arquivos
+	- n_aprovação -- número de presenças mínima nos dias para aprovação
 - Execute o arquivo "Presenciador.py"
 
 #### Linux
@@ -21,7 +21,7 @@ você poderá me comprar uma cerveja em retribuição, Arthur Cordeiro Andrade.-
 python3 Presenciador.py
 ```
 
-#### Windows (Prompt or Power-Shell)
+#### Windows (Prompt ou Power-Shell)
 ```
 python Presenciador.py
 ```
