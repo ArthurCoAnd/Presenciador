@@ -36,24 +36,42 @@ str_nome_arq = nome_pasta + "/Dia1.csv"
 with open(str_nome_arq, encoding="utf-8") as arq_csv:
 	leitor = csv.reader(arq_csv)
 	for nome, email in leitor:
-		pessoas.append([nome,email,1])
-		ppd[0] += 1
+		# Verificar se a pessoa analisada é repetida
+			chave = True
+			for p in range (len(pessoas)):
+				if(pessoas[p][0].lower()==nome.lower() or pessoas[p][1].lower()==email.lower()):
+					chave = False
+					break
+			if(chave):
+				pessoas.append([nome,email,1])
+				ppd[0] += 1
+print("Pessoas depois do Dia 1")
+print(pd.DataFrame(pessoas, columns=["Nome","Email","Presenças"]))
 
 # Cadastrar Pessoas Próximos Dias
 for n_arq_atual in range (2,n_arqs+1):
 	str_nome_arq = nome_pasta + "/Dia" + str(n_arq_atual) + ".csv"
 	with open(str_nome_arq, encoding="utf-8") as arq_csv:
 		leitor = csv.reader(arq_csv)
+		verificador = [True] * len(pessoas)
 		for nome, email in leitor:
 			# Verificar se a pessoa analisada é repetida
 			chave = True
 			for p in range (len(pessoas)):
 				if(pessoas[p][0].lower()==nome.lower() or pessoas[p][1].lower()==email.lower()):
-					pessoas[p][2] += 1
 					chave = False
+					if(verificador[p]):
+						pessoas[p][2] += 1
+						ppd[n_arq_atual-1] += 1
+						verificador[p] = False
+						break
 			if(chave):
 				pessoas.append([nome,email,1])
-			ppd[n_arq_atual-1] += 1
+				verificador.append(False)
+				print(verificador)
+				ppd[n_arq_atual-1] += 1
+	print(f"Pessoas depois do Dia {n_arq_atual}")
+	print(pd.DataFrame(pessoas, columns=["Nome","Email","Presenças"]))
 
 # Print Pessoas
 print("Pessoas")
@@ -88,7 +106,7 @@ with open(nome_arquivo_aprovados, "w", newline="", encoding="utf-8") as arq_csv:
 # Aprovados Por Pessoas
 app = [0,0]
 indexG = ["Sim","Não"]
-cores = ["#75ff75","#ff7575"]
+cores = ["#15aa15","#aa1515"]
 for p in range (len(pessoas)):
 	if(pessoas[p][2]>=n_aprovação):
 		app[0] += 1
