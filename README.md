@@ -7,6 +7,12 @@ você poderá me comprar uma cerveja em retribuição, Arthur Cordeiro Andrade.-
 # PRESENCIADOR
 ![Badge](https://img.shields.io/badge/license-BeerWare-yellow?style=for-the-badge)
 
+## Pré-Requisitos
+- Instale o **Matplotlib**:
+```
+pip install matplotlib
+```
+
 ## MODO DE USAR
 - Crie uma pasta com o nome desejado
 - Coloque os arquivos csv contendo os nomes e emails das pessoas, nomeando eles como **Dia1** até o **DiaN**.
