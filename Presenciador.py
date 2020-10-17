@@ -45,8 +45,6 @@ with open(str_nome_arq, encoding="utf-8") as arq_csv:
 			if(chave):
 				pessoas.append([nome,email,1])
 				ppd[0] += 1
-print("Pessoas depois do Dia 1")
-print(pd.DataFrame(pessoas, columns=["Nome","Email","Presenças"]))
 
 # Cadastrar Pessoas Próximos Dias
 for n_arq_atual in range (2,n_arqs+1):
@@ -68,10 +66,7 @@ for n_arq_atual in range (2,n_arqs+1):
 			if(chave):
 				pessoas.append([nome,email,1])
 				verificador.append(False)
-				print(verificador)
 				ppd[n_arq_atual-1] += 1
-	print(f"Pessoas depois do Dia {n_arq_atual}")
-	print(pd.DataFrame(pessoas, columns=["Nome","Email","Presenças"]))
 
 # Print Pessoas
 print("Pessoas")
